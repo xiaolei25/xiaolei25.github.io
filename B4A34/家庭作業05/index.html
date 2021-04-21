@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+      <!DOCTYPE html>
+  <html lang ="zh">
+    
+    <head>
+    <meta charset="UTF-8">
+        <title>家庭作業05</title>
+    <style>
+        h4 {
+        color: red;
+            }
+        div{
+        color: blue;
+        margin: 5px;
+            }
+        </style>
+    </head>
+    <body>
+    <form id="form01">
+        姓名:<input type="text" name="name01" value="陳蕾"><br>
+        收件住址:<input type="text" name="address01" value="台北市中正區重慶南路二段19巷12號-1一樓"><br>
+        電話:<input type="tel" name="tel01" value="0905797604"><br>
+        電子郵件:<input type="email" name="email01" value="u10605134@ms.edu.ttu.tw"><br>
+        指定送貨日期:<input type="date" name="date01" ><br>
+        鞋子種類：<br>
+		<input type="checkbox" name="shoes" id="shoes01"   value="CONVERSE低筒及高筒石灰色男滑板鞋（一雙）">CONVERSE低筒高筒石灰色男滑板鞋（一雙）1280元 <br>
+        <input type="checkbox" name="shoe" id="shoes02" value="Nike Air Force 1 React QS Light Bone 白間一號板鞋(一雙) "> Nike Air Force 1 React QS Light Bone 骨白間一號板鞋(一雙)6850元<br>
+        <input type="checkbox" name="shoe" id="shoes03" value=" PUMA 彪馬 Platform Trace Wn's 帆布鞋（一雙）">  彪馬 PUMA Platform Trace Wn's 帆布鞋（一雙） 1200元<br>
+		<input type="checkbox" name="shoe" id="shoes04" value=" 愛迪達 Adidas Melting Sadness X 新款藍兔子慢跑運動鞋(一雙)"> 愛迪達 Adidas Melting Sadness X 新款藍兔子慢跑運動鞋(一雙) 2850元<br>
+		<input type="checkbox" name="shoe" id="shoes05" value=" New Balance 2002系列灰色老爹鞋(一雙)"> New Balance 2002系列灰色老爹鞋(一雙) 3250元<br>
+		<input type="checkbox" name="shoe" id="shoes06" value=" GUCCI ACE系列小蜜蜂刺繡 男女 休閒運動小白鞋(一雙)">GUCCI ACE系列小蜜蜂刺繡 男女 休閒運動小白鞋 10800元<br>
+		
+        </form>
+       
+<button onclick="shoppingInfo()"><h4>結帳</h4></button>
+<div id= "demo"></div>
+<script>
+
+    function shoppingInfo(){
+        var x = document.getElementById("form01");
+        var item  ="";
+        var price = 0;
+        var text = "<h4>您的購物資訊如下:</h4>";
+        var i;
+		 
+	    text += "<table border='1' width='90%' cellspacing='0' cellpadding='0'>" ;
+		 for (i=0;i<5; i++){	
+			 text += "<tr>";
+              switch (i) {
+				   case 0 :
+				  item = "姓名:";
+				   break; 
+	           
+               case 1 :
+                 item = "收件住址:";
+                 break;
+               case 2:
+                 item = "電話:";
+                 break;
+               
+               case 3 :
+                 item = "電子郵件:";
+                 break;
+               case 4:
+                 item = "指定送貨日期:";
+                 break;
+			  }
+			text += "<td>" + item + "</td>" + "<td>" + x.elements[i].value +"</td>";
+             text += "</tr>";
+                  
+		 
+		 }
+      for (i=5;i<=10; i++){
+        
+		  if(x.elements[i].checked == true){
+                switch(i){
+                    case 5: price=1280; break;
+                    case 6: price=6850; break;
+                    case 7: price=1200; break;
+					case 8: price=2850; break;
+					case 9: price=3250; break;
+					case 10: price=10800; break;
+				   
+                    }
+			  text +="<td>"+ "鞋子種類:" + "</td>" + "<td>" + x.elements[i].value + "</td>";
+			  text += "</tr>";
+              text += "<td>"+ "價格合計:" + "</td>" + "<td>"+ price + "元" + "</td>";
+			   text += "</tr>";
+                    }
+		     
+                }
+			  document.getElementById("demo").innerHTML = text;		
+	
+	}     
+	
+      </script>
+    
+        
+    </body>
+    </html>
